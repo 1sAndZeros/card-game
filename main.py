@@ -1,7 +1,11 @@
-from lib.Card import Card
-from lib.Deck import Deck
+from lib.Game import Game
+from lib.Player import Player
+from utils import clear
 
-club8 = Card(8, "clubs")
-deck = Deck()
+clear()
 
-print(deck.cards)
+names = ["Rikie", "Alina", "Roberto", "Oli"]
+players = [Player(i + 1, name) for i, name in enumerate(names)]
+
+game = Game(players)
+game.start_game()

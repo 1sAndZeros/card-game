@@ -1,11 +1,11 @@
-from lib.values import lookup
+from lib.values import values
 
 
 class Card:
     def __init__(self, face_value, suit) -> None:
         self.suit = suit
         self.face_value = face_value if type(face_value) == str else face_value
-        self.value = lookup[self.face_value]
+        self.value = values[self.face_value]
 
     def __repr__(self) -> str:
         return f"{self.face_value} of {self.suit}"
