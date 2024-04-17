@@ -77,4 +77,3 @@ class TestGame:
         computer.score = 52
         winners = game.check_winner()
         assert winners == [player1, computer]
-        assert False
