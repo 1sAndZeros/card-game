@@ -2,7 +2,6 @@ from lib.Game import Game
 from lib.Player import Player
 from lib.Deck import Deck
 from lib.Card import Card
-import pytest
 
 
 class TestGame:
@@ -14,10 +13,10 @@ class TestGame:
         assert not game.deck == Deck()
         assert game.player1 == Player(1, "Rikie")
         assert len(game.player1.hand) == 26
-        assert game.game_over == False
+        assert not game.game_over
         assert game.trick == []
         assert game.tricks == []
-        assert game.previous_winner == None
+        assert not game.previous_winner
 
     def test_print_scores(self, capsys):
         players = [Player(1, "Rikie"), Player(2, "Computer")]
@@ -33,13 +32,7 @@ class TestGame:
         for i in range(26):
             game.player1.play_card(0)
         game.check_game_over()
-        assert game.game_over == True
-
-    def test_check_winner(self):
-        players = [Player(1, "Rikie"), Player(2, "Computer")]
-        game = Game(players)
-        game.player1.score = 999
-        assert game.check_winner() == [Player(1, "Rikie")]
+        assert game.game_over
 
     def test_trick_winner_same_suit(self):
         player1 = Player(1, "Rikie")
@@ -48,7 +41,9 @@ class TestGame:
         game = Game(players)
         high_card = Card(10, "Clubs")
         low_card = Card(3, "Clubs")
-        winner = game.check_trick_winner([(player1, low_card), (computer, high_card)])
+        winner = game.check_trick_winner(
+            [(player1, low_card), (computer, high_card)]
+        )
         assert winner == computer
         assert computer.score == 1
 
@@ -59,11 +54,13 @@ class TestGame:
         game = Game(players)
         high_card = Card(10, "Hearts")
         low_card = Card(3, "Clubs")
-        winner = game.check_trick_winner([(player1, low_card), (computer, high_card)])
+        winner = game.check_trick_winner(
+            [(player1, low_card), (computer, high_card)]
+        )
         assert winner == player1
         assert player1.score == 1
 
-    def test_check_winner(self):
+    def test_game_check_winner(self):
         player1 = Player(1, "Rikie")
         computer = Player(2, "Computer")
         players = [player1, computer]
@@ -80,3 +77,4 @@ class TestGame:
         computer.score = 52
         winners = game.check_winner()
         assert winners == [player1, computer]
+        assert False

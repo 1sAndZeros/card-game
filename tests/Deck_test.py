@@ -2,6 +2,7 @@ import pytest
 from lib.Deck import Deck
 from lib.Card import Card
 
+
 class TestDeck:
 
     def test_deck_initialises_with_52_cards(self):

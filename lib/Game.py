@@ -49,7 +49,9 @@ class Game:
         for player in self.players:
 
             has_2_clubs = Card(2, "Clubs") in player.hand
-            is_prev_winner = self.previous_winner and player == self.previous_winner
+            is_prev_winner = (
+                self.previous_winner and player == self.previous_winner
+            )
 
             if has_2_clubs or is_prev_winner:
                 self.players.remove(player)
