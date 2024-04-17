@@ -20,6 +20,8 @@ class TestPlayer:
         player1 = Player(1, "rikie patrick")
         player1_clone = Player(1, "rikie patrick")
         assert player1 == player1_clone
+        player1_clone.add_cards_to_hand(Card(2, "Clubs"))
+        assert player1 == player1_clone
 
     def test_two_players_are_not_equal(self):
         player1 = Player(1, "rikie patrick")

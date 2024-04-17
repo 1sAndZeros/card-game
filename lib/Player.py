@@ -12,7 +12,7 @@ class Player:
         return f"Player {self.id} - {self.name}"
 
     def __eq__(self, value: object) -> bool:
-        return self.__dict__ == value.__dict__
+        return self.id == value.id and self.name == value.name
 
     def add_cards_to_hand(self, card: Card):
         self.hand.append(card)

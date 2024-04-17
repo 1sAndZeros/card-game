@@ -98,7 +98,7 @@ class Game:
     def check_trick_winner(self, trick: list[tuple[Player, Card]]):
         [winning_player, winning_card] = trick[0]
         lead_suit = winning_card.suit
-        for player, card in self.trick:
+        for player, card in trick:
             if card.suit == lead_suit and card.value > winning_card.value:
                 winning_card = card
                 winning_player = player
