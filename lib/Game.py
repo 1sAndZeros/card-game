@@ -4,7 +4,6 @@ import random
 from lib.Deck import Deck
 from lib.Player import Player
 from lib.Card import Card
-from lib.utils import clear
 from time import sleep
 
 
@@ -106,7 +105,8 @@ class Game:
                 winning_player = player
 
         print(
-            f"{'You' if winning_player.id == 1 else winning_player.name} won this hand"
+            f"{'You' if winning_player.id == 1 else winning_player.name} \
+                won this hand"
         )
         winning_player.score += 1
         return winning_player
