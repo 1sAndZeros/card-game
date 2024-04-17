@@ -7,7 +7,6 @@ class Player:
         self.name = name.title()
         self.hand: list[Card] = []
         self.score: int = 0
-        self.games_won: int = 0
 
     def __repr__(self) -> str:
         return f"Player {self.id} - {self.name}"
@@ -28,6 +27,8 @@ You have the following cards in your hand:
 {''.join(cards)}------------------------"""
 
     def play_card(self, hand_index: int):
+        if hand_index < 0 or hand_index >= len(self.hand):
+            raise Exception("Sorry, cannot find that card")
         card = self.hand.pop(hand_index)
         print(f"{'You' if self.id == 1 else self.name} played: {card}")
         return card
