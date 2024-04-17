@@ -4,7 +4,7 @@ import random
 from lib.Deck import Deck
 from lib.Player import Player
 from lib.Card import Card
-from utils import clear
+from lib.utils import clear
 from time import sleep
 
 

@@ -1,6 +1,6 @@
 from lib.Game import Game
 from lib.Player import Player
-from utils import clear
+from lib.utils import clear
 
 clear()
 
