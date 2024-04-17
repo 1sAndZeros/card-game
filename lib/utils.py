@@ -1,3 +1,5 @@
 import os
 
-clear = lambda: os.system("clear")
+
+def clear():
+    os.system("clear")
